@@ -18,8 +18,11 @@ if(INCLUDE_SANDBOX)
     set(SANDBOX_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=${PROJECT_PATH} -DLUA_JIT=off --no-warn-unused-cli)
     externalproject_add(
         ${SANDBOX_PACKAGE}
-        GIT_REPOSITORY https://github.com/mozilla-services/lua_sandbox.git
-        GIT_TAG 7abcb7c661c13c970fb9e928e428551671244911
+        # https://github.com/mozilla-services/heka/issues/1994
+        GIT_REPOSITORY https://github.com/composit/lua_sandbox.git
+        GIT_TAG dd0f11dcc07a289bb236d4f255dc5e9caa2c4784
+        # GIT_REPOSITORY https://github.com/mozilla-services/lua_sandbox.git
+        # GIT_TAG 7abcb7c661c13c970fb9e928e428551671244911
         CMAKE_ARGS ${SANDBOX_ARGS}
         INSTALL_DIR ${PROJECT_PATH}
     )
